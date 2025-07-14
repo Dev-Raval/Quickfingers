@@ -53,7 +53,7 @@ def wpm_test(stdscr, target_text):
         except:
             continue
 
-        if ord(key) == 27:  # ESC to quit
+        if ord(key) == 27: 
             exit()
 
         if key in ("KEY_BACKSPACE", '\b', "\x7f"):
@@ -65,15 +65,14 @@ def wpm_test(stdscr, target_text):
 
 def main(stdscr):
     curses.curs_set(0)
-    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)   # Correct
-    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)     # Incorrect
-    curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_BLACK)   # Base
-    curses.init_pair(4, curses.COLOR_YELLOW, curses.COLOR_BLACK)  # WPM
+    curses.init_pair(1, curses.COLOR_GREEN, curses.COLOR_BLACK)  
+    curses.init_pair(2, curses.COLOR_RED, curses.COLOR_BLACK)   
+    curses.init_pair(3, curses.COLOR_WHITE, curses.COLOR_BLACK)  
+    curses.init_pair(4, curses.COLOR_YELLOW, curses.COLOR_BLACK) 
 
     start_screen(stdscr)
 
     while True:
-        # Load a new line each time
         target_text = load_text()
         wpm_test(stdscr, target_text)
 
