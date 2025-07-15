@@ -18,9 +18,9 @@ def display_text(stdscr, target, current, wpm=0):
 
     for i, char in enumerate(current):
         correct_char = target[i]
-        color = curses.color_pair(1)  # Green
+        color = curses.color_pair(1)
         if char != correct_char:
-            color = curses.color_pair(2)  # Red
+            color = curses.color_pair(2)
         stdscr.addstr(0, i, char, color)
 
 
@@ -76,13 +76,13 @@ def main(stdscr):
         target_text = load_text()
         wpm_test(stdscr, target_text)
 
-        stdscr.addstr(4, 0, "✅ You completed the line!", curses.color_pair(1))
+        stdscr.addstr(4, 0, " You completed the line!", curses.color_pair(1))
         stdscr.addstr(5, 0, "Do you want to continue? (Y/N): ", curses.color_pair(4))
         stdscr.refresh()
 
         key = stdscr.getkey()
         if key.lower() != 'y':
-            stdscr.addstr(6, 0, "👋 Exiting the test. Thank you!", curses.color_pair(3))
+            stdscr.addstr(6, 0, " Exiting the test. Thank you!", curses.color_pair(3))
             stdscr.refresh()
             time.sleep(2)
             break
